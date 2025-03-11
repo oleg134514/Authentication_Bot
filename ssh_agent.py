@@ -1,9 +1,8 @@
 import paramiko
 import time
-#authorization_ssh = man
-authorization_ssh = sert
-
-if authorization_ssh == man:
+#authorization_ssh = 'man'
+authorization_ssh = 'sert'
+if authorization_ssh == 'man':
     host = ''
     user = ''
     secret = ''
@@ -21,10 +20,10 @@ if authorization_ssh == man:
     #print (data)
 else:
     host = ''
-    user = 'your_username'
+    user = ''
     port = 22
     key_filename = 'path/to/your/id_rsa'  # Замените на путь к вашему приватному ключу
-    open_fier = 
+    #open_fier = 
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.WarningPolicy()) #Более безопасный вариант, но нужно будет подтвердить ключ при первом подключении.
     client.connect(hostname=host, username=user, key_filename=key_filename, port=port)
