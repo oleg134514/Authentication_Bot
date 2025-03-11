@@ -1,4 +1,5 @@
-import paramiko 
+import paramiko
+import time
 #authorization_ssh = man
 authorization_ssh = sert
 
@@ -12,6 +13,9 @@ if authorization_ssh == man:
     #client.set_missing_host_key_policy(paramiko.WarningPolicy())
     client.connect(hostname=host, username=user, password=secret, port=port)
     stdin, stdout, stderr = client.exec_command('ls -l')
+    time.sleep(1)
+    stdin, stdout, stderr = client.exec_command('ls -l')
+    time.sleep(1)
     #data = stdout.read() + stderr.read()
     client.close()
     #print (data)
@@ -25,6 +29,9 @@ else:
     client.set_missing_host_key_policy(paramiko.WarningPolicy()) #Более безопасный вариант, но нужно будет подтвердить ключ при первом подключении.
     client.connect(hostname=host, username=user, key_filename=key_filename, port=port)
     stdin, stdout, stderr = client.exec_command('ls -l')
+    time.sleep(1)
+    stdin, stdout, stderr = client.exec_command('ls -l')
+    time.sleep(1)
     data = stdout.read() + stderr.read()
     client.close()
     print(data.decode()) #Добавлена декодировка для корректного вывода
